@@ -1,4 +1,4 @@
-package views;
+package application;
 
 import views.carga.CargaView;
 import views.passeio.PasseioView;
@@ -9,16 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class GestaoVeiculosMainView extends JFrame {
+public class Principal extends JFrame {
 
     //Singleton
-    private static GestaoVeiculosMainView gestaoVeiculosMainViewUnico;
+    private static Principal principalUnico;
 
-    public static GestaoVeiculosMainView criaGestaoVeiculosMainView(){
-        if (gestaoVeiculosMainViewUnico == null){
-            gestaoVeiculosMainViewUnico = new GestaoVeiculosMainView();
+    public static Principal criaGestaoVeiculosMainView(){
+        if (principalUnico == null){
+            principalUnico = new Principal();
         }
-        return gestaoVeiculosMainViewUnico;
+        return principalUnico;
     }
 
     public static void main(String[] args) {
@@ -26,12 +26,12 @@ public class GestaoVeiculosMainView extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GestaoVeiculosMainView().setVisible(true);
+                new Principal().setVisible(true);
             }
         });
     }
 
-    private GestaoVeiculosMainView(){
+    private Principal(){
         initJanela();
     }
 

@@ -16,8 +16,7 @@ import java.util.List;
 
 public class CadastroPasseioView extends JFrame{
 
-    //Botões
-
+   //Botões
    private JButton cadastrarButton = new JButton("<html><u>C</u>adastrar");
    private JButton limparButton =  new JButton("Limpar");
    private JButton novoButton = new JButton("Novo");
@@ -82,39 +81,6 @@ public class CadastroPasseioView extends JFrame{
         setMinimumSize(new Dimension(430, 320));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        /*
-        //Botões
-
-        JButton cadastrarButton = new JButton("<html><u>C</u>adastrar");
-        JButton limparButton =  new JButton("Limpar");
-        JButton novoButton = new JButton("Novo");
-        JButton sairButton = new JButton("Sair");
-
-        //Labels
-        JLabel placaLabel = new JLabel("Placa: ");
-        JLabel marcaLabel = new JLabel("Marca: ");
-        JLabel modeloLabel = new JLabel("Modelo: ");
-        JLabel corLabel = new JLabel("Cor: ");
-        JLabel rodasLabel = new JLabel("Rodas: ");
-        JLabel velMaxLabel = new JLabel("Velocidade Máx.: ");
-        JLabel pistoesLabel = new JLabel("Qtd. Pistões: ");
-        JLabel potenciaLabel = new JLabel("Potência");
-        JLabel passageirosLabel = new JLabel("Qtd. Passageiros: ");
-
-        //Fields
-        JFormattedTextField placaTextField = new JFormattedTextField();
-        JTextField marcaTextField = new JTextField(20);
-        JTextField modeloTextField = new JTextField(20);
-        JTextField corTextField = new JTextField(20);
-        JTextField velMaxTextField = new JTextField(20);
-        JTextField rodasTextField = new JTextField(20);
-        JTextField pistoesTextField = new JTextField(20);
-        JTextField potenciaTextField = new JTextField(20);
-        JTextField passageirosTextField = new JTextField(20);
-
-         */
-        
 
         //Action Listener dos botões
         cadastrarButton.addActionListener(new ActionListener() {
@@ -215,9 +181,6 @@ public class CadastroPasseioView extends JFrame{
         getContentPane().add(pistoesTextField);
         getContentPane().add(potenciaTextField);
         getContentPane().add(passageirosTextField);
-
-        setVisible(true);
-
     }
 
     private void cadastrarPasseio() throws VelocException {
@@ -252,12 +215,13 @@ public class CadastroPasseioView extends JFrame{
     }
 
     private void limpar(){
-        ArrayList<Frame> framesList = new ArrayList<Frame>(List.of(JFrame.getFrames()));
-        utilidadesCampos.limpaCampos((JFrame)(framesList.stream().filter(x -> x.isVisible() && x.isActive()).findAny().get()));
+        utilidadesCampos.limpaCampos(cadastroPasseioViewUnico);
         placaTextField.requestFocus();
+        utilidadesCampos.liberaCampos(cadastroPasseioViewUnico);
     }
 
     private void sair(){
+        limpar();
         dispose();
     }
 

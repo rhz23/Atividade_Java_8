@@ -1,5 +1,9 @@
 package views.carga;
 
+import views.passeio.CadastroPasseioView;
+import views.passeio.ConsultaExcluiPasseioView;
+import views.passeio.ImprimiExcluiPasseioView;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -57,19 +61,19 @@ public class CargaView extends JFrame{
         //Action Listener dos botões
         cadastrarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt){
-                sair();
+                CadastroCargaView.criaCadastroCargaView().setVisible(true);
             }
         });
 
         consultarExcluirButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt){
-                sair();
+                ConsultaExcluiCargaView.criaConsultaExcluirCargaView().setVisible(true);
             }
         });
 
         imprimirExcluirAllButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt){
-                sair();
+                ImprimiExcluiCargaView.criaImprimirExcluirCargaView().setVisible(true);
             }
         });
 
@@ -102,9 +106,6 @@ public class CargaView extends JFrame{
         getContentPane().add(consultarExcluirButtonLabel);
         getContentPane().add(imprimirExcluirAllButtonLabel);
         getContentPane().add(sairButtonLabel);
-
-        setVisible(true);
-
     }
 
     private void sair(){

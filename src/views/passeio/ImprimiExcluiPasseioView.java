@@ -127,6 +127,8 @@ public class ImprimiExcluiPasseioView extends JFrame{
     //metodos
     private void sair(){
         dispose();
+        model = new DefaultTableModel(colunas, 0);
+        tabelaDados.setModel(model);
     }
 
     private void imprimirTodosPasseio(){

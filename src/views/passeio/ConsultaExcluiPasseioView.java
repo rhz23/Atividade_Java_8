@@ -98,6 +98,7 @@ public class ConsultaExcluiPasseioView extends JFrame{
         sairButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt){
                 sair();
+                limpar();
             }
         });
 
@@ -171,9 +172,6 @@ public class ConsultaExcluiPasseioView extends JFrame{
         getContentPane().add(pistoesTextField);
         getContentPane().add(potenciaTextField);
         getContentPane().add(passageirosTextField);
-
-        setVisible(true);
-
     }
 
     // TODO: 29/05/2022 -verificar interesse de passar metodos auxiliares para classe utils 
@@ -200,8 +198,7 @@ public class ConsultaExcluiPasseioView extends JFrame{
     }
 
     private void limpar(){
-        ArrayList<Frame> framesList = new ArrayList<Frame>(List.of(JFrame.getFrames()));
-        utilidadesCampos.limpaCampos((JFrame)(framesList.stream().filter(x -> x.isVisible() && x.isActive()).findAny().get()));
+        utilidadesCampos.limpaCampos(consultaExcluirPasseioViewUnico);
         placaTextField.requestFocus();
     }
 
